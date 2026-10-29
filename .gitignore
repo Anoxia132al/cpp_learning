@@ -1,0 +1,27 @@
+# CMake build outputs
+/build/
+/bin/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+
+# C/C++ build artifacts
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.d
+
+# IDE and tooling caches
+.vs/
+.cache/
+
+#忽略.vscode配置
+/.vscode/  
