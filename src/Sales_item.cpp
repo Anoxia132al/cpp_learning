@@ -10,3 +10,10 @@ double Sales_item::total_price() const
 {
     return cnt * price;
 }
+
+void Sales_item_test()
+{
+    Sales_item item;
+    item.input(1, 2, 3);
+    std::cout << item.total_price() << std::endl;
+}
