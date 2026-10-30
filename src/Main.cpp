@@ -8,10 +8,10 @@ using std::endl;
 #include "Sales_item.h"
 #include "else_random.h"
 #include "pointer_const.h"
-#include "string_cin.h"
+#include "string_vector.h"
 
 int main () 
 {
-    
+    ts_iterator();
     return 0;
 }

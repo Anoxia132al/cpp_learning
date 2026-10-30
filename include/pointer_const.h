@@ -5,5 +5,5 @@
 using std::cout;
 using std::endl;
 
-void pointer();
-void cst();
+void pointer ();
+void cst ();

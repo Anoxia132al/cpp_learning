@@ -24,4 +24,4 @@ compile_commands.json
 .cache/
 
 #忽略.vscode配置
-/.vscode/  
+.vscode/  

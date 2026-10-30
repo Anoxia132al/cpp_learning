@@ -13,4 +13,4 @@ public:
     double total_price () const;
 };
 
-void Sales_item_test();
+void Sales_item_test ();
