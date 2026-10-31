@@ -30,7 +30,7 @@ add_executable(Learning
     src/Sales_item.cpp
     src/else_random.cpp
     src/pointer_const.cpp
-    src/string_vector.cpp
+    src/string_vector_arry.cpp
 )
 
 # 头文件目录: 这样 #include "Sales_item.h" 可以直接写, 不用 ../include/

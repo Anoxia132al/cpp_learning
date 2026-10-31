@@ -1,4 +1,4 @@
-#include "string_vector.h"
+#include "string_vector_arry.h"
 
 void string_cin ()
 {
@@ -30,7 +30,10 @@ void process_string ()
 
     std::string str2 = "0123456789ABCDEF", result;
     int n;
-    while (std::cin >> n && n != -1)  if ((std::string::size_type)n < str2.size())  { result += str2[n]; }
+    while (std::cin >> n && n != -1)
+    {
+        if ((std::string::size_type)n < str2.size())  { result += str2[n]; }
+    }  
     cout << result;
 }
 
@@ -61,6 +64,65 @@ void ts_iterator ()
     vector<unsigned> scores (11, 0);
     unsigned grade;
     auto beg = scores.begin();
-    while (std::cin >> grade) { if (grade <= 100)  ++*(beg + grade / 10); }
-    for (auto it = scores.cbegin(); it != scores.cend(); ++it)  { cout << *it << " "; }
+    while (std::cin >> grade) 
+    { 
+        if (grade <= 100)  ++*(beg + grade / 10); 
+    }
+    for (auto it = scores.cbegin(); it != scores.cend(); ++it)  
+    cout << *it << " "; 
+}
+
+void lk_arry ()
+{
+    int arr[] = {0, 1, 2, 3, 4, 5};
+
+    for (int* p = arr; p != &arr[6]; ++p) { std::cout << *p << " "; } 
+    std::cout << std::endl;
+
+    int* beg = std::begin(arr);
+    int* end = std::end(arr);
+    while (beg != end) { std::cout << *beg << " "; beg++; } std::cout << std::endl;
+
+    int* rp = &arr[3];
+    std::cout << rp[1] << std::endl; //  rp[1] 等价于 *(rp + 1),即 arr[4] 表示的元素
+}
+
+void mld_arry ()
+{
+    constexpr size_t rowCnt = 3, colCnt = 4;
+    int ia[rowCnt][colCnt] = { {0, 1, 2, 3}, {4, 5, 6, 7}, {8, 9, 10, 11} };
+
+    for (size_t i = 0; i != rowCnt; ++i)
+    {
+        for (size_t j = 0; j != colCnt; ++j) { cout << ia[i][j] << " "; }
+        cout << endl; 
+    }
+
+    for (const auto &row : ia)  //  如果写 (auto row : ia) 会把数组退化为指针，编译器将 row 判为 int* 类型
+    {
+        for (auto col : row) { cout << col << " "; }
+        cout << endl;
+    }
+
+    for (auto p = ia; p != ia + rowCnt; ++p)
+    {
+        for (auto q = *p; q != *p + colCnt; ++q) { cout << *q << " "; }
+        cout << endl;
+    }
+
+    for (auto p = std::begin(ia); p != std::end(ia); ++p)
+    {
+        for (auto q = std::begin(*p); q != std::end(*p); ++q) { cout << *q << " "; }
+        cout << endl;
+    }
+}
+
+void mld_vector ()
+{
+    vector<vector<int>> ia = { {0, 1, 2, 3}, {4, 5, 6, 7}, {8, 9, 10, 11} };
+    for (const auto &row : ia)
+    {
+        for (auto col : row) { cout << col << " "; }
+        cout << endl;
+    }
 }
