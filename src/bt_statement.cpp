@@ -44,26 +44,6 @@ void for_statement()
         std::cout << "maxWd : " << maxWd << " appears " << maxcnt << " times" << std::endl;
 }
 
-void break_statement()
-{
-    std::string str;
-    while (std::cin >> str)
-    {
-        for (std::string::size_type i = 1; i != str.size(); ++i)
-        {
-            if (str[i - 1] == str[i])
-            {
-                std::cout << "the first pair char is : " <<  str[i] << std::endl;
-                break;
-            }
-            if (i == str.size() - 1)
-            {
-                std::cout << "no pair char" << std::endl;
-                std::cout << str << std::endl;
-            }
-        }
-    }
-}
 void break_statement_2 ()
 {
     std::string str;
@@ -104,5 +84,22 @@ void break_on_book ()
             }
             prevWord = currWord;
         }
+    }
+}
+
+void try_statement ()
+{
+    int a = 0;
+    try 
+    {
+        if (!(std::cin >> a)) throw std::runtime_error ("data must be int");
+        std::cout << a << std::endl;
+    } 
+    //  用 &err
+    catch (const std::runtime_error &err) 
+    {
+        std::cout << err.what() << std::endl;
+        //  输入失败， cin 处于错误状态
+        std::cin.clear();   //  清理错误状态
     }
 }
