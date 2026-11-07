@@ -31,6 +31,8 @@ add_executable(Learning
     src/else_random.cpp
     src/pointer_const.cpp
     src/string_vector_arry.cpp
+    src/lk_expression.cpp
+    src/bt_statement.cpp
 )
 
 # 头文件目录: 这样 #include "Sales_item.h" 可以直接写, 不用 ../include/

@@ -21,6 +21,11 @@ void pointer ()
     //!  ptr = &b;  //  常量指针不能改变指向的地址
     *ptr = 32;
     cout << *ptr << endl;
+
+    int x[10]; int* p2 = x;
+    cout << sizeof(x) / sizeof(*x) << endl;
+    //  cout << sizeof(p2) / sizeof(*p2) << endl;
+    //  sizeof(p2) 的值是指针的大小, 32位系统中是4字节, 64位系统中是8字节
 }
 
 void cst ()

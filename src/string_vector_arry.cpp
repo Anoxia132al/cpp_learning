@@ -32,7 +32,7 @@ void process_string ()
     int n;
     while (std::cin >> n && n != -1)
     {
-        if ((std::string::size_type)n < str2.size())  { result += str2[n]; }
+        if ((std::string::size_type)n < str2.size())  { result += str2[n]; }  //  size() 返回值为 std::string::size_type 类型
     }  
     cout << result;
 }
@@ -47,7 +47,7 @@ void pos_vector ()
     std::string str;
     vector<std::string> str_vec2;
 
-    while (std::cin >> str)  { str_vec2.push_back(str); }
+    while (std::cin >> str)  { str_vec2.push_back(str); }  //  push_back() 将元素添加到容器的末尾
     for (const auto &v : str_vec2) { std::cout << v << " "; }
 } 
 
@@ -63,10 +63,10 @@ void ts_iterator ()
 
     vector<unsigned> scores (11, 0);
     unsigned grade;
-    auto beg = scores.begin();
+    auto beg = scores.begin();  //  begin() 返回一个指向容器开头的迭代器, 可以修改容器中的元素
     while (std::cin >> grade) 
     { 
-        if (grade <= 100)  ++*(beg + grade / 10); 
+        if (grade <= 100)  ++*(beg + grade / 10);  //  beg + grade / 10 返回一个指向 scores 容器中对应元素的迭代器, 然后对该元素进行自增操作
     }
     for (auto it = scores.cbegin(); it != scores.cend(); ++it)  
     cout << *it << " "; 
@@ -79,9 +79,9 @@ void lk_arry ()
     for (int* p = arr; p != &arr[6]; ++p) { std::cout << *p << " "; } 
     std::cout << std::endl;
 
-    int* beg = std::begin(arr);
+    int* beg = std::begin(arr);  //  begin() 返回一个指向数组开头的指针, 可以修改数组中的元素
     int* end = std::end(arr);
-    while (beg != end) { std::cout << *beg << " "; beg++; } std::cout << std::endl;
+    while (beg != end) { std::cout << *beg << " "; ++beg; } std::cout << std::endl;
 
     int* rp = &arr[3];
     std::cout << rp[1] << std::endl; //  rp[1] 等价于 *(rp + 1),即 arr[4] 表示的元素
@@ -89,7 +89,10 @@ void lk_arry ()
 
 void mld_arry ()
 {
-    constexpr size_t rowCnt = 3, colCnt = 4;
+    constexpr size_t rowCnt = 3, colCnt = 4;  //  constexpr 用于定义常量表达式, 在编译时求值, 可以用于数组大小等需要常量的地方
+    //  size_t 是无符号整数类型, 用于表示对象的大小, 以及数组下标等, 在 32 位系统中通常为 4 字节, 在 64 位系统中通常为 8 字节
+    //  与 size_type 不同, size_t 是 C++ 标准库中定义的类型, 而 size_type 是 STL 容器中定义的类型, 例如 vector<int>::size_type
+    //  size_type 是为了保证在不同平台上都能正确表示容器的大小, 而 size_t 是为了保证在不同平台上都能正确表示对象的大小
     int ia[rowCnt][colCnt] = { {0, 1, 2, 3}, {4, 5, 6, 7}, {8, 9, 10, 11} };
 
     for (size_t i = 0; i != rowCnt; ++i)
@@ -98,6 +101,7 @@ void mld_arry ()
         cout << endl; 
     }
 
+    //  使用范围 for 循环遍历多维数组, 需要使用引用类型, 否则会将数组退化为指针, 编译器将 row 判为 int* 类型
     for (const auto &row : ia)  //  如果写 (auto row : ia) 会把数组退化为指针，编译器将 row 判为 int* 类型
     {
         for (auto col : row) { cout << col << " "; }
