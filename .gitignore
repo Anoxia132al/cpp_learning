@@ -25,6 +25,3 @@ compile_commands.json
 
 #忽略.vscode配置
 .vscode/
-
-#
-.CmakeList.txt

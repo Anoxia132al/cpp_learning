@@ -11,12 +11,14 @@ using std::endl;
 #include "string_vector_arry.h"
 #include "lk_expression.h"
 #include "bt_statement.h"
+#include "pt_function.h"
 
 int main () 
 {
     
     //  break_on_book ();
     //  break_statement_2 ();
-    try_statement ();
+    //  try_statement ();
+    slp_in_function ();
     return 0;
 }

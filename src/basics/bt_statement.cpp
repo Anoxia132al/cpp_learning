@@ -95,7 +95,7 @@ void try_statement ()
         if (!(std::cin >> a)) throw std::runtime_error ("data must be int");
         std::cout << a << std::endl;
     } 
-    //  用 &err
+    //  用const and &err
     catch (const std::runtime_error &err) 
     {
         std::cout << err.what() << std::endl;

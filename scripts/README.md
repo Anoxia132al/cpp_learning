@@ -6,7 +6,7 @@
 python scripts/new_exercise.py array_reference
 ```
 
-脚本会创建 `include/array_reference.h` 和 `src/array_reference.cpp`，并将源文件添加到 `CMakeLists.txt`。然后在 `src/Main.cpp` 中添加：
+脚本会创建 `src/basics/include/array_reference.h` 和 `src/basics/array_reference.cpp`，并将源文件添加到 `CMakeLists.txt` 的 `Learning` 目标。然后在 `src/basics/Main.cpp` 中添加：
 
 ```cpp
 #include "array_reference.h"
