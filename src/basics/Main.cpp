@@ -15,6 +15,6 @@ using std::endl;
 
 int main () 
 {
-    run_find_char ();
+    run_back_arryppointer ();
     return 0;
 }
