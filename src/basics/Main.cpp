@@ -5,16 +5,18 @@
 using std::cout;
 using std::endl;
 
-// #include "Sales_item.h"
+#include "Sales_item.h"
 // #include "else_random.h"
 // #include "pointer_const.h"
 // #include "string_vector_arry.h"
 // #include "lk_expression.h"
 // #include "bt_statement.h"
 #include "pt_function.h"
+#include "class_person.h"
 
 int main () 
 {
-    run_tt_func ();
+    //  run_per_test ();
+    Sales_data_test ();
     return 0;
 }

@@ -123,6 +123,7 @@ int tt_func2 (int a, int b)
 
 void run_tt_func ()
 {
+    //  vector 对象为指向函数的指针
     std::vector<int (*)(int a, int b)> vec;
     vec.push_back (tt_func);
     vec.push_back (tt_func2);
@@ -133,3 +134,16 @@ void run_tt_func ()
     std::cout << result1 << " and " << result2 << std::endl;
 }
 
+void run_tt_func2 ()
+{
+    using p = int (*)(int a, int b);
+    //  vector 对象为指向函数的指针
+    std::vector<p> vec;
+    vec.push_back (tt_func);
+    vec.push_back (tt_func2);
+
+    int result1 = vec[0] (1, 2);
+    int result2 = vec[1] (2, 3);
+
+    std::cout << result1 << " and " << result2 << std::endl;
+}

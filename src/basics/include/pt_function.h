@@ -18,3 +18,4 @@ int (*get_row(int matrix[][1920], int row_index))[1920];
 int tt_func (int a, int b);
 int tt_func2 (int a, int b);
 void run_tt_func ();
+void run_tt_func2 ();
