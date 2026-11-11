@@ -15,6 +15,6 @@ using std::endl;
 
 int main () 
 {
-    run_back_arryppointer ();
+    run_tt_func ();
     return 0;
 }

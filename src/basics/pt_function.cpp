@@ -104,3 +104,32 @@ void run_back_arryppointer ()
         std::cout << std::endl;
     }
 }
+
+//  处理多维数组
+int (*get_row(int matrix[][1920], int row_index))[1920]
+{
+    return &matrix[row_index];
+}
+
+int tt_func (int a, int b)
+{
+    return a + b;
+}
+
+int tt_func2 (int a, int b)
+{
+    return a * b;
+}
+
+void run_tt_func ()
+{
+    std::vector<int (*)(int a, int b)> vec;
+    vec.push_back (tt_func);
+    vec.push_back (tt_func2);
+
+    int result1 = vec[0] (1, 2);
+    int result2 = vec[1] (2, 3);
+
+    std::cout << result1 << " and " << result2 << std::endl;
+}
+
