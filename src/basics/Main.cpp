@@ -13,10 +13,12 @@ using std::endl;
 // #include "bt_statement.h"
 #include "pt_function.h"
 #include "class_person.h"
+#include "class_pro.h"
 
 int main () 
 {
-    litt_ts ();
+    run_test ();
+    //litt_ts ();
     //  run_per_test ();
     //Sales_data_test2 ();
     return 0;

@@ -18,10 +18,15 @@ public :
 
     Screen& set (char);
     Screen& set (pos, pos, char);
+
+    Screen& display (std::ostream&);
+    const Screen& display (std::ostream&) const;
 private :
     pos cursor = 0;
     pos height = 0, width = 0;
     std::string contents;
+
+    void do_display (std::ostream&) const;
 };
 
 class Window_mgr
@@ -29,4 +34,5 @@ class Window_mgr
     std::vector<Screen> screens = {Screen (24, 80, ' ')};
 };
 
+void run_test ();
 
