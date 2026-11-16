@@ -55,6 +55,7 @@ add_lesson_target(Learning
     src/basics/bt_statement.cpp
     src/basics/pt_function.cpp
     src/basics/class_person.cpp
+    src/basics/class_pro.cpp
 )
 
 # basics 的私有头文件统一放在章节内的 include/ 下
