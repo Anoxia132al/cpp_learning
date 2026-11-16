@@ -4,28 +4,6 @@ Screen::Screen () = default;
 Screen::Screen (pos ht, pos wd, char c) :
     height(ht), width(wd), contents(ht * wd, c) {}
 
-char Screen::get () const
-{
-    return contents[cursor];
-}
-
-char Screen::get (pos r, pos c) const
-{
-    pos row = r * width;
-    return contents[row + c];   //  返回指定列的字符
-}
-
-inline Screen& Screen::set (char c)
-{
-    contents[cursor] = c;   //  设置当前光标所在位置的新值
-    return *this;
-}
-
-inline Screen& Screen::set (pos r, pos col, char ch)
-{
-    contents[r * width + col] = ch; //  设置给定位置的新值
-    return *this;
-}
 
 Screen& Screen::display (std::ostream &os)
 {
@@ -33,6 +11,7 @@ Screen& Screen::display (std::ostream &os)
     return *this;
 }
 
+//  重载
 const Screen& Screen::display (std::ostream &os) const
 {
     do_display (os);
@@ -53,11 +32,35 @@ void Screen::do_display(std::ostream& os) const
     }
 }
 
-inline Screen& Screen::move (pos r, pos c)
+//  =============================================
+
+void Window_mgr::clear (ScreenIndex i)
 {
-    pos row = r * width;    //  计算行的位置
-    cursor = row + c;   //  在行内将光标移动到指定的列
-    return *this;   //  以左值的形式返回对象
+    Screen &s = screens[i];
+
+    s.contents = std::string (s.height * s.width, ' ');
+}
+
+void Window_mgr::addScreen (const Screen &s)
+{
+    screens.push_back(s);
+}
+
+//  addScreen(Screen) + std::move	少一次拷贝
+Window_mgr::ScreenIndex Window_mgr::addScreen_pro (Screen s)
+{
+    screens.push_back(std::move(s));
+    return screens.size() - 1;
+}
+
+//  可切换到文件流/ostringstream 测试，块间加分隔线
+void Window_mgr::displayAll (std::ostream& os) const
+{
+    for (ScreenIndex i = 0; i < screens.size(); ++i)
+    {
+        os << "---- screen " << i << " ----\n";
+        screens[i].display(os); //  这里选中的是 const 重载
+    }
 }
 
 void run_test ()
@@ -67,4 +70,19 @@ void run_test ()
     std::cout << "\n";
     myScreen.display(std::cout);
     std::cout << std::endl;
+}
+
+void run_test2 ()
+{
+    Window_mgr wm;
+    wm.addScreen(Screen(3, 3, 'X'));
+    wm.addScreen(Screen(4, 4, 'Y'));
+    wm.addScreen(Screen(5, 5, 'Z'));
+
+    std::cout << "==== before clear ====\n";
+    wm.displayAll(std::cout);
+
+    wm.clear(2);
+    std::cout << "==== after clear(2) ====\n";
+    wm.displayAll(std::cout);
 }

@@ -17,7 +17,7 @@ using std::endl;
 
 int main () 
 {
-    run_test ();
+    run_test2 ();
     //litt_ts ();
     //  run_per_test ();
     //Sales_data_test2 ();
