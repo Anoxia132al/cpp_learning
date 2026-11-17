@@ -10,6 +10,9 @@ public:
     using pos = std::string::size_type;
     friend class Window_mgr; 
 
+    //  参数类型 ScreenIndex 用到 Screen 类，需要前置声明/定义
+    //  friend void Window_mgr::clear (ScreenIndex);
+
     Screen();
     Screen(pos, pos, char);
 
