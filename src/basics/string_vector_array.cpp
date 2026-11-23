@@ -1,4 +1,4 @@
-#include "string_vector_arry.h"
+#include "string_vector_array.h"
 
 void string_cin ()
 {

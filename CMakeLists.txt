@@ -43,6 +43,11 @@ function(add_stl_exercise name)
     add_lesson_target(stl_${name} src/stl/${name}.cpp)
 endfunction()
 
+# memory 章节: 一个练习就是一个带 main() 的 .cpp, 对应一个独立可执行文件
+function(add_memory_exercise name)
+    add_lesson_target(memory_${name} src/memory/${name}.cpp)
+endfunction()
+
 # ---------------- 可执行目标 ----------------
 # basics: 一个 Main.cpp 调用各模块
 add_lesson_target(Learning
@@ -50,7 +55,7 @@ add_lesson_target(Learning
     src/basics/Sales_item.cpp
     src/basics/else_random.cpp
     src/basics/pointer_const.cpp
-    src/basics/string_vector_arry.cpp
+    src/basics/string_vector_array.cpp
     src/basics/lk_expression.cpp
     src/basics/bt_statement.cpp
     src/basics/pt_function.cpp
@@ -64,5 +69,8 @@ target_include_directories(Learning PRIVATE
 )
 
 # stl: 新增练习时, 新建 src/stl/<name>.cpp 后在这里加一行
-add_stl_exercise(hello_stl)
+add_stl_exercise(stl_io)
 # add_stl_exercise(vector_basics)
+
+# memory: 新增练习时, 新建 src/memory/<name>.cpp 后在这里加一行
+add_memory_exercise(shared_ptr_basics)

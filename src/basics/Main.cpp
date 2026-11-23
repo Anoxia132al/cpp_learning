@@ -8,7 +8,7 @@ using std::endl;
 #include "Sales_item.h"
 //  #include "else_random.h"
 //  #include "pointer_const.h"
-//  #include "string_vector_arry.h"
+//  #include "string_vector_array.h"
 //  #include "lk_expression.h"
 //  #include "bt_statement.h"
 //  #include "pt_function.h"
