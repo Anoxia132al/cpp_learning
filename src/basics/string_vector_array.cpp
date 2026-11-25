@@ -1,5 +1,7 @@
 #include "string_vector_array.h"
 
+#include <limits>   //  std::numeric_limits：GCC 16 不再从其它头文件间接带入
+
 void string_cin ()
 {
     std::string s1, s2;
