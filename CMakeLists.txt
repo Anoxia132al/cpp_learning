@@ -33,6 +33,10 @@ function(add_lesson_target name)
     target_include_directories(${name} PRIVATE ${COMMON_INCLUDE_DIR})
     if(MSVC)
         target_compile_options(${name} PRIVATE /W4)
+    elseif(MINGW)
+        target_compile_options(${name} PRIVATE -Wall -Wextra -Wpedantic)
+        # 静态链接 C++ 运行库, 产物不再依赖 PATH 里的 libstdc++-6.dll / libgcc_s_seh-1.dll
+        target_link_options(${name} PRIVATE -static)
     else()
         target_compile_options(${name} PRIVATE -Wall -Wextra -Wpedantic)
     endif()
@@ -69,7 +73,7 @@ target_include_directories(Learning PRIVATE
 )
 
 # stl: 新增练习时, 新建 src/stl/<name>.cpp 后在这里加一行
-add_stl_exercise(stl_io)
+add_stl_exercise(seq_container)
 # add_stl_exercise(vector_basics)
 
 # memory: 新增练习时, 新建 src/memory/<name>.cpp 后在这里加一行
