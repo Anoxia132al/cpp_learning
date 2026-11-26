@@ -74,6 +74,7 @@ target_include_directories(Learning PRIVATE
 
 # stl: 新增练习时, 新建 src/stl/<name>.cpp 后在这里加一行
 add_stl_exercise(seq_container)
+add_stl_exercise(generic_algorithm)
 # add_stl_exercise(vector_basics)
 
 # memory: 新增练习时, 新建 src/memory/<name>.cpp 后在这里加一行
